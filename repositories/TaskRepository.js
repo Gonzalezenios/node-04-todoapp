@@ -12,7 +12,9 @@ class TaskRepository {
 
     }
 
-    saveTask() {
+    createTask(task) {
+        const task = new Task(title);
+        this._tasks.push(task);
 
     }
 
@@ -24,7 +26,7 @@ class TaskRepository {
 
     }
 
-    
+
 
 
 
