@@ -1,5 +1,10 @@
+const { inquirerMenu } = require('./helpers/inquirer')
+
 const main = async() => {
-    console.log('Hola Mundo');
+    
+    await inquirerMenu();
+
+
 }
 
 main();

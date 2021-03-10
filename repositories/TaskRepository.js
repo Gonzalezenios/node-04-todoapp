@@ -1,4 +1,4 @@
-import Task from "../models/task);";
+import Task from "../models/Task);";
 
 class TaskRepository {
 
@@ -12,9 +12,18 @@ class TaskRepository {
 
     }
 
+    /**
+     * 
+     * @param {String} title
+     * 
+     * TODO: Nos falta persistir datos en archivo 
+     *      
+     */
+
     createTask(task) {
         const task = new Task(title);
         this._tasks.push(task);
+        return this._tasks;
 
     }
 
