@@ -5,13 +5,13 @@ class Task {
 
     id = '';
     title = '';
-    done =false;
+    done = null;
     created = null;
     finished = null;
 
     constructor(title) {
         this.id = uuidv4(); // TO-DO: asignar id
-        this.title = '';
+        this.title = title;
         this.done = false;
         this.created = new Data();
 
