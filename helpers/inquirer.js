@@ -6,48 +6,76 @@ const inquirerMenu = async () => {
   console.log("Select  option".yellow);
   console.log("========================".blue);
 
-  const menu = [
-    {
-      type: "list",
-      name: "option",
-      message: "What do you want to do?",
-      choices: [
-        {
-          value: 1,
-          name: `${"1-".magenta} Create Task`,
-        },
-        {
-          value: 2,
-          name: `${"2-".magenta} Get Task`,
-        },
-        {
-          value: 0,
-          name: `${"0-".magenta} Salir`,
-        },
-      ],
-    },
-  ];
+  const menu = [{
+    type: "list",
+    name: "option",
+    message: "What do you want to do?",
+    choices: [{
+        value: 1,
+        name: `${"1-".magenta} Create Task`,
+      },
+      {
+        value: 2,
+        name: `${"2-".magenta} Get Task`,
+      },
+      {
+        value: 3,
+        name: `${"2-".magenta} Complete Task`,
+      },
+      {
+        value: 4,
+        name: `${"2-".magenta} Delete Task`,
+      },
+      {
+        value: 0,
+        name: `${"0-".magenta} Exit`,
+      },
+    ],
+  }, ];
 
-  const { option } = await inquirer.prompt(menu);
+  const {
+    option
+  } = await inquirer.prompt(menu);
 
   return option;
 };
 
 const inquirerInput = async (message) => {
-  const question = [
-    {
-      type: "input",
-      name: "description",
-      message,
-    },
-  ];
+  const question = [{
+    type: "input",
+    name: "description",
+    message,
+  }, ];
 
-  const { description } = await inquirer.prompt(question);
+  const {
+    description
+  } = await inquirer.prompt(question);
 
   return description;
 };
 
+const inquirerSubMenu = async (choise, action) => {
+  console.log("===============================".america);
+  console.log("Select a task".white);
+  console.log("===============================".america);
+
+
+const menu = [{
+  type: "List",
+  name: "option",
+  message: `Select task to ${action}`,
+}, ];
+
+const {
+  option
+} = await inquirer.prompt(menu);
+
+return option;
+
+};
+
 module.exports = {
   inquirerMenu,
-  inquirerInput
+  inquirerInput,
+  inquirerSubMenu,
 };

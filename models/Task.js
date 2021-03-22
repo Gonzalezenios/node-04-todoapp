@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const getTodayDate = require('../helpers/dateFormat');
 
 
 class Task {
@@ -13,7 +14,7 @@ class Task {
         this.id = uuidv4(); // TO-DO: asignar id
         this.title = title;
         this.done = false;
-        this.created = new Data();
+        this.created = getTodayDate();
 
     }
 
