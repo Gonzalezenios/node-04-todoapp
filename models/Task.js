@@ -17,7 +17,6 @@ class Task {
         this.created = getTodayDate();
 
     }
-
 }
 
 module.exports = Task;

@@ -20,11 +20,11 @@ const inquirerMenu = async () => {
       },
       {
         value: 3,
-        name: `${"2-".magenta} Complete Task`,
+        name: `${"3-".magenta} Complete Task`,
       },
       {
         value: 4,
-        name: `${"2-".magenta} Delete Task`,
+        name: `${"4-".magenta} Delete Task`,
       },
       {
         value: 0,
@@ -54,23 +54,24 @@ const inquirerInput = async (message) => {
   return description;
 };
 
-const inquirerSubMenu = async (choise, action) => {
+const inquirerSubMenu = async (choices, action) => {
   console.log("===============================".america);
   console.log("Select a task".white);
   console.log("===============================".america);
 
 
-const menu = [{
-  type: "List",
-  name: "option",
-  message: `Select task to ${action}`,
-}, ];
+  const menu = [{
+    type: "List",
+    name: "option",
+    message: `Select task to ${action}`,
+    choices,
+  }, ];
 
-const {
-  option
-} = await inquirer.prompt(menu);
+  const {
+    option
+  } = await inquirer.prompt(menu);
 
-return option;
+  return option;
 
 };
 

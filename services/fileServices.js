@@ -1,18 +1,56 @@
 const TaskRepository = require("../repositories/TaskRepository");
 const taskRepository = new TaskRepository();
 
-const getAllTask = () => {
-    const task = taskRepository.getAllTask();
-    return task.map(e =>{
-        return { title: e.title, done: e.done}
+const getAllTasks = () => {
+    const tasks = taskRepository.getAllTasks().map((task) => {
+      if (task.done === true) {
+        return {
+          title: task.title,
+          done: "COMPLETED",
+          created: task.created,
+          finished: task.finished,
+        };
+      }
+  
+      return { title: task.title, done: "UNFINISHED", created: task.created };
     });
-}
-
-const createTask = (title) => {
+    return tasks;
+  };
+  
+  const getChoices = () => {
+    const choices = taskRepository.getAllTasks().map((task) => {
+      return { value: task.id, name: task.title, done: task.done };
+    });
+    return choices;
+  };
+  
+  const getChoicesToComplete = () => {
+    const choices = taskRepository.getAllTasks().map((task) => {
+      if (task.done === false) {
+        return { value: task.id, name: task.title, done: task.done };
+      }
+      return;
+    });
+    return choices;
+  };
+  
+  const createTask = (title) => {
     taskRepository.createTask(title);
-}
-
-module.exports = {
-    getAllTask,
-    createTask
-}
+  };
+  
+  const deleteTask = (id) => {
+    taskRepository.deleteTask(id);
+  };
+  
+  const completeTask = (id) => {
+    taskRepository.completeTask(id);
+  };
+  
+  module.exports = {
+    getAllTasks,
+    createTask,
+    deleteTask,
+    completeTask,
+    getChoices,
+    getChoicesToComplete,
+  };

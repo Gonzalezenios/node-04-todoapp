@@ -18,7 +18,7 @@ class TaskRepository {
     }
   }
 
-  getAllTask() {
+  getAllTasks() {
 
     return this._tasks;
   }
